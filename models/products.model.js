@@ -12,10 +12,19 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
+    enum: [
+      "Chordophones",
+      "Keyboard",
+      "Membranophones",
+      "Aerophones",
+      "Idiophones",
+    ],
   },
   rating: {
     type: Number,
     required: true,
+    min: 0,
+    max: 5,
   },
   description: {
     type: String,
@@ -47,5 +56,7 @@ const productSchema = new mongoose.Schema({
   },
 });
 
+// Model creation
 const Product = mongoose.model("Product", productSchema);
+
 module.exports = Product;
