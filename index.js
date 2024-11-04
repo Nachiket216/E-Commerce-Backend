@@ -7,7 +7,7 @@ const app = express();
 
 const cors = require("cors");
 
-const { productRouter } = require("./routes/index");
+const { productRouter, categoryRouter } = require("./routes/index");
 
 app.use(cors());
 
@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/products", productRouter);
+app.use("/categories", categoryRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => {
